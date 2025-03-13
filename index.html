@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Personal Performance Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="dashboard-header">
+        <h1>My Performance Dashboard</h1>
+        <p>Motivate yourself by tracking daily metrics</p>
+    </header>
+    <main class="dashboard-container">
+        <div class="card-row">
+            <!-- Weather Card -->
+            <div class="card" id="weatherCard">
+                <div class="card-title">Weather (Melbourne)</div>
+                <div class="weather-info">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Weather icon"
+                        class="weather-icon" id="weatherIcon">
+                    <span class="weather-temp" id="weatherTemp">--°C</span>
+                </div>
+                <small id="weatherDesc">Loading...</small>
+            </div>
+
+            <!-- Add unique IDs to the editable cards -->
+            <div class="card editable-card" id="wakeUpCard" data-type="time" data-value="06:30">
+                <div class="card-title">Wake Up Time</div>
+                <div class="card-value wake-up-display">06:30</div>
+            </div>
+
+            <div class="card editable-card" id="sleepCard" data-type="time" data-value="23:45">
+                <div class="card-title">Sleep Time</div>
+                <div class="card-value sleep-display">23:45</div>
+            </div>
+
+            <div class="card editable-card energy-card" id="energyCard" data-type="number" data-value="8">
+                <div class="card-title">Energy Level</div>
+                <div class="card-value energy-display">8/10</div>
+            </div>
+
+            <!-- Add IDs to the fragmentation cards -->
+            <div class="card editable-card" id="fragTimeCard" data-type="number" data-value="45">
+                <div class="card-title">Frag. Time</div>
+                <div class="card-value">45</div>
+            </div>
+            <div class="card editable-card" id="fragCountCard" data-type="number" data-value="3">
+                <div class="card-title">Frag. Count</div>
+                <div class="card-value">3</div>
+            </div>
+            <div class="card focus-categories">
+                <div class="card-title">Focus Breakdown</div>
+                <ul>
+                    <!-- This will be populated by JavaScript -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Charts section -->
+        <div class="chart-row">
+            <div class="chart-card">
+                <div class="chart-title">Focus Time This Week</div>
+                <canvas id="focusBarChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-row">
+            <div class="chart-card">
+                <div class="chart-title">Today's Time Allocation</div>
+                <canvas id="timeAllocationChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modalOverlay" class="modal-overlay">
+            <div class="modal-content">
+                <h3 id="modalTitle">Set Value</h3>
+                <input type="time" id="modalTimeInput" class="modal-input hidden">
+                <input type="number" id="modalNumberInput" class="modal-input hidden" min="1" max="10">
+                <div class="modal-buttons">
+                    <button id="modalSave">Save</button>
+                    <button id="modalCancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Floating Add Button -->
+    <div id="addButton" class="floating-button">+</div>
+
+    <!-- Pop-up Box for Focus/Fragmentation -->
+    <div id="popupBox" class="popup-box hidden">
+        <h3>Select Activity</h3>
+        <select id="activityType">
+            <option value="focus">Focus</option>
+            <option value="fragmentation">Fragmentation</option>
+        </select>
+        <div id="focusInputContainer" class="hidden">
+            <label for="focusCategory">Focus Category:</label>
+            <input type="text" id="focusCategory" placeholder="Enter category">
+        </div>
+        <button id="startActivity">Start</button>
+    </div>
+
+    <!-- Floating Timer -->
+    <div id="floatingTimer" class="floating-timer hidden">
+        <span id="timerDisplay">00:00</span>
+        <button id="stopTimer">×</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
