@@ -19,3 +19,6 @@ node server.js
 http://localhost:3000
 ```
 3. Start tracking your time
+
+## Screenshots
+![Dashboard](./screenshots/dashboard.jpg)
