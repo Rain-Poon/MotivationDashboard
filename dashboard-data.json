@@ -1,26 +1,14 @@
 {
   "personalMetrics": {
-    "wakeUpTime": "10:30",
-    "sleepTime": "00:30",
-    "energyLevel": 2,
-    "fragmentationTime": 121,
-    "fragmentationCount": 4,
+    "wakeUpTime": "11:30",
+    "sleepTime": "01:00",
+    "energyLevel": 8,
+    "fragmentationTime": 10,
+    "fragmentationCount": 1,
     "focusBreakdown": [
       {
-        "category": "Deep Work",
-        "duration": "2h"
-      },
-      {
-        "category": "Reading",
-        "duration": "1h"
-      },
-      {
-        "category": "Exercise",
-        "duration": "30min"
-      },
-      {
         "category": "Research (ATC)",
-        "duration": "0h 1min"
+        "duration": "0h 2min"
       }
     ]
   },
@@ -43,7 +31,7 @@
     },
     {
       "day": "Fri",
-      "hours": 0.016666666666666666
+      "hours": 0.03333333333333333
     },
     {
       "day": "Sat",
@@ -56,25 +44,10 @@
   ],
   "todayTimeAllocation": [
     {
-      "category": "Deep Work",
-      "hours": 2,
-      "color": "#8AE57C"
-    },
-    {
-      "category": "Reading",
-      "hours": 1,
-      "color": "#430472"
-    },
-    {
-      "category": "Exercise",
-      "hours": 30,
-      "color": "#57757C"
-    },
-    {
       "category": "Research (ATC)",
-      "hours": 0.016666666666666666,
-      "color": "#458658"
+      "hours": 0.03333333333333333,
+      "color": "#858F2F"
     }
   ],
-  "lastUpdated": "2025-03-13T13:47:19.625Z"
+  "lastUpdated": "2025-03-14T02:32:25.561Z"
 }

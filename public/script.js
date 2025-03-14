@@ -203,6 +203,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 dashboardData.personalMetrics.fragmentationCount = newValue;
             } else if (activeCard.id === 'fragTimeCard') {
                 dashboardData.personalMetrics.fragmentationTime = newValue;
+                const fragHours = Math.floor(dashboardData.personalMetrics.fragmentationTime / 60);
+                const fragMins = dashboardData.personalMetrics.fragmentationTime % 60;
+                activeCard.querySelector('.card-value').textContent = `${fragHours} h ${fragMins} min`;
             }
         } else {
             displayElement.textContent = newValue;
@@ -358,7 +361,15 @@ let activeActivity = null;
 
 // Show/hide popup box
 addButton.addEventListener('click', () => {
+    // Toggle the popup box visibility
     popupBox.classList.toggle('hidden');
+
+    // Ensure the focus input container visibility matches the current activity type
+    if (activityType.value === 'focus') {
+        focusInputContainer.classList.remove('hidden');
+    } else {
+        focusInputContainer.classList.add('hidden');
+    }
 });
 
 // Toggle focus input based on selection
