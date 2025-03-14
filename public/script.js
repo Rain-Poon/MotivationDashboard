@@ -6,7 +6,7 @@ let dashboardData = null;
 // Load data from JSON file
 async function loadDashboardData() {
     try {
-        const response = await fetch('dashboard-data.json');
+        const response = await fetch('http://localhost:3000/api/dashboard'); // Matches server endpoint
         if (!response.ok) throw new Error('Failed to load data');
         dashboardData = await response.json();
         return dashboardData;

@@ -16,6 +16,24 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Optional: Add a catch-all route to serve the index.html for any other routes
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Return dashboard data
+app.get('/api/dashboard', async (req, res) => {
+    try {
+        const data = await fs.readFile(DATA_FILE, 'utf8');
+        res.json(JSON.parse(data));
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to read dashboard data' });
+    }
+});
+
 // Existing /update endpoint (optional)
 app.post('/update', async (req, res) => {
     try {
@@ -35,9 +53,6 @@ app.post('/api/save-dashboard', async (req, res) => {
         res.status(500).json({ error: 'Failed to save dashboard' });
     }
 });
-
-// Serve static files (if needed)
-app.use(express.static('public'));
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
